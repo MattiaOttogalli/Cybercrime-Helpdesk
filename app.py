@@ -9,7 +9,7 @@ st.set_page_config(
 )
 
 # Titolo principale (assicurati che non ci sia spazio a sinistra)
-st.title("⚖️ Cybercrime Advisor Pro")
+st.title("⚖️ Cybercrime Advisor")
 st.markdown("### Analisi giuridica avanzata dei reati informatici")
 st.divider()
 
@@ -200,5 +200,6 @@ else:
                 st.write(f"- **{v['titolo']}** (Codice: {k})")
     else:
         st.info("Benvenuto. Seleziona una categoria o usa la barra di ricerca a sinistra per analizzare un reato.")
+
 
 
