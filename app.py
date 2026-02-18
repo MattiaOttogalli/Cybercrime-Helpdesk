@@ -167,7 +167,7 @@ if codice_finale:
         if query and query.lower() in dati['note'].lower():
             st.success(f"Trovata corrispondenza per la tua ricerca: '{query}'")
 
-   with tab2:
+    with tab2:
         col_m1, col_m2 = st.columns(2)
         with col_m1:
             st.markdown("<h1 style='text-align: left; color: #E74C3C; font-size: 45px;'>Pena Prevista</h1>", unsafe_allow_html=True)
@@ -202,6 +202,7 @@ else:
                 st.write(f"- **{v['titolo']}** (Codice: {k})")
     else:
         st.info("Benvenuto. Seleziona una categoria o usa la barra di ricerca a sinistra per analizzare un reato.")
+
 
 
 
