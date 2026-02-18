@@ -77,7 +77,7 @@ database_reati = {
         'titolo': "Frode informatica",
         'pena_base': "Da 2 a 6 anni",
         'gravita': 6,
-        'multa': "da 600€ a 3000€ "
+        'multa': "da 600€ a 3000€ ",
         'note': "Alterazione del funzionamento di un sistema per procurare a sé o ad altri un ingiusto profitto."
     },
     '648-bis': {
@@ -223,6 +223,7 @@ else:
                 st.write(f"- **{v['titolo']}** (Codice: {k})")
     else:
         st.info("Benvenuto. Seleziona una categoria o usa la barra di ricerca a sinistra per analizzare un reato.")
+
 
 
 
