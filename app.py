@@ -162,15 +162,17 @@ if codice_finale:
     tab1, tab2, tab3 = st.tabs(["📄 Analisi Legale", "⚖️ Pene e Aggravanti", "📊 Comparazione Gravità"])
     
     with tab1:
-        st.error("### Descrizione della Fattispecie")
+        st.error("### Fattispecie:")
         st.write(dati['note'])
         if query and query.lower() in dati['note'].lower():
             st.success(f"Trovata corrispondenza per la tua ricerca: '{query}'")
 
-    with tab2:
+   with tab2:
         col_m1, col_m2 = st.columns(2)
         with col_m1:
-            st.metric("Pena Base", dati['pena_base'])
+            st.markdown("<h1 style='text-align: left; color: #E74C3C; font-size: 45px;'>Pena Prevista</h1>", unsafe_allow_html=True)
+
+            st.markdown(f"<p style='font-size: 30px; font-weight: bold;'>{dati['pena_base']}</p>", unsafe_allow_html=True)
         
         st.markdown("---")
         st.markdown("#### Valutazione Aggravanti")
@@ -200,6 +202,7 @@ else:
                 st.write(f"- **{v['titolo']}** (Codice: {k})")
     else:
         st.info("Benvenuto. Seleziona una categoria o usa la barra di ricerca a sinistra per analizzare un reato.")
+
 
 
 
