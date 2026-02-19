@@ -144,7 +144,7 @@ search_query = st.text_input("Esempio: 'mi hanno svuotato il conto' oppure 'hack
 codice_trovato = None
 
 if query:
-    # Ricerca intelligente nel database
+    codice_identificato = None
     for cod, info in database_reati.items():
         if query in info['titolo'].lower() or any(tag in query for tag in info['tags']):
             codice_identificato = cod
@@ -154,30 +154,32 @@ if query:
         res = database_reati[codice_identificato]
         st.success(f"### Reato Riconosciuto: {res['titolo']}")
         
+        # CREAZIONE TAB
         tab1, tab2, tab3 = st.tabs(["🛠️ Azioni Immediate", "👮 Procedura Legale", "🛡️ Prevenzione"])
         
         with tab1:
-            st.markdown("#### Cosa fare nei prossimi 5 minuti:")
+            st.markdown("#### Cosa fare subito:")
             for s in res['soluzione']:
                 st.write(f"- {s}")
         
         with tab2:
+            # SEZIONE CHE NON VENIVA STAMPATA
             st.markdown("#### Iter di Denuncia (Cosa deve fare il soggetto):")
             st.info(res['azione_legale'])
-            st.warning("⚠️ Ricorda: Hai 90 giorni di tempo dalla scoperta del fatto per presentare querela.")
+            st.warning("⚠️ Nota: Hai 90 giorni di tempo dalla scoperta del fatto per sporgere querela.")
             
             if st.button("📝 Genera Bozza Denuncia"):
-                bozza = f"AL RESPONSABILE DELLA POLIZIA POSTALE\n\nIl sottoscritto espone quanto segue: in data odierna ho riscontrato anomalie riconducibili al reato di {res['titolo']}.\nAzioni di contenimento già effettuate: {res['soluzione'][0]}.\nSi richiede l'identificazione dei responsabili e si resta a disposizione per fornire le prove digitali raccolte."
+                bozza = f"AL RESPONSABILE DELLA POLIZIA POSTALE\n\nIl sottoscritto espone quanto segue: in data odierna ho riscontrato anomalie riconducibili al reato di {res['titolo']}.\nAzioni intraprese: {res['soluzione'][0]}.\nSi richiede l'identificazione dei responsabili."
                 st.code(bozza, language="text")
         
         with tab3:
             st.markdown("#### Consigli per il futuro:")
             st.success(res['prevenzione'])
-            
     else:
-        st.error("❌ Nessun reato specifico identificato. Prova termini come 'banca', 'hacker', 'virus' o 'soldi'.")
+        st.error("Nessun reato trovato. Prova con altre parole chiave.")
 else:
     st.info("Digita il problema riscontrato nella barra di ricerca sopra per ricevere assistenza.")
 
 st.markdown("---")
 st.caption("Nota: Questo applicativo ha scopo informativo. In caso di reato, consulta sempre un avvocato o la Polizia Postale.")
+
