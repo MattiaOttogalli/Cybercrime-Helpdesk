@@ -162,7 +162,7 @@ if search_query:
             for s in dati['soluzione']:
                 st.write(f"- {s}")
         
-       with t2:
+        with t2:
             st.markdown("### Iter Legale: Cosa deve fare il soggetto")
             st.info(dati['azione_legale'])
             st.warning("⚠️ **Nota Bene:** La denuncia può essere presentata presso qualsiasi ufficio di Polizia o Carabinieri, ma la Polizia Postale è specializzata in questi reati.")
@@ -182,5 +182,6 @@ else:
 
 st.markdown("---")
 st.caption("Nota: Questo strumento fornisce indicazioni generali. In caso di reato, si consiglia di consultare un legale o la Polizia Postale.")
+
 
 
