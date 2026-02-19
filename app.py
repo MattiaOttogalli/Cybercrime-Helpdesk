@@ -19,8 +19,16 @@ st.markdown("""
         font-weight: bold;
     }
     .stTabs [aria-selected="true"] { background-color: #007bff !important; color: white !important; }
+
+    button[data-baseweb="tab"] {
+        background-color: transparent !important;
+        border: none !important;
+        color: #6c757d !important;
+    }
+    
     </style>
     """, unsafe_allow_html=True)
+
 
 # 2. DATABASE COMPLETO (Tutti i reati con Pene e Azioni Legali)
 database_reati = {
@@ -197,3 +205,4 @@ else:
 
 st.markdown("---")
 st.caption("Nota: Questo strumento ha scopo informativo. In caso di reato, consulta sempre un legale o la Polizia Postale.")
+
