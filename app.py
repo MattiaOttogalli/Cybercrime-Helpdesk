@@ -12,6 +12,7 @@ database_reati = {
         'pena': "Reclusione fino a 3 anni",
         'soluzione': ["Cambia password immediatamente", "Attiva 2FA", "Disconnetti dispositivi sospetti"],
         'denuncia': "Art. 615-ter c.p. - Porta i log di accesso o gli avvisi di login sospetti alla Polizia Postale.",
+        'azione_legale': "Raccogli gli screenshot delle notifiche di accesso (email 'nuovo accesso') e gli ID delle sessioni sospette. Non cancellare i log. Presenta querela entro 90 giorni.",
         'prevenzione': "Usa password diverse per ogni servizio e un Password Manager."
     },
     '615-aggravato': {
@@ -20,6 +21,7 @@ database_reati = {
         'pena': "Pena aumentata (Art. 615-ter comma 2)",
         'soluzione': ["Segnala l'abuso all'ente di appartenenza del soggetto"],
         'denuncia': "Art. 615-ter c.p. (Aggravato). Specifica la qualifica del colpevole nella querela.",
+        'azione_legale': "Oltre alla querela, richiedi un audit interno all'ente di appartenenza del Pubblico Ufficiale. Identifica il database specifico che è stato violato indebitamente.",
         'prevenzione': "Monitoraggio degli accessi (audit log) nei sistemi della PA."
     },
     '635-bis': {
@@ -28,6 +30,7 @@ database_reati = {
         'pena': "Reclusione da 2 a 6 anni",
         'soluzione': ["Isola il dispositivo", "Tenta ripristino da backup offline", "Non pagare riscatti"],
         'denuncia': "Art. 635-bis c.p. - Il reato sussiste anche se i dati sono recuperabili.",
+        'azione_legale': "Non formattare il dispositivo. Salva i file danneggiati su un supporto esterno come prova. Se possibile, ottieni una perizia informatica che attesti l'alterazione dei dati.",
         'prevenzione': "Effettua backup periodici su dischi non collegati alla rete."
     },
     '635-ter': {
@@ -36,6 +39,7 @@ database_reati = {
         'pena': "Reclusione da 3 a 8 anni",
         'soluzione': ["Attiva piani di emergenza e continuità operativa"],
         'denuncia': "Art. 635-ter c.p. - Segnalazione immediata al CNAIPIC.",
+        'azione_legale': "Segnala immediatamente l'incidente al CNAIPIC (Polizia Postale) e coordina l'azione legale con l'ufficio legale dell'ente colpito.",
         'prevenzione': "Protezione delle infrastrutture critiche con sistemi ridondanti."
     },
     '635-quater': {
@@ -44,6 +48,7 @@ database_reati = {
         'pena': "Reclusione da 2 a 6 anni",
         'soluzione': ["Analisi del traffico per filtrare attacchi DDoS", "Potenziamento firewall"],
         'denuncia': "Art. 635-quater c.p. - Raccogli prove dell'interruzione del servizio.",
+        'azione_legale': "Documenta il periodo di inattività (downtime) tramite log del server o testimonianze. Raccogli prove degli indirizzi IP sorgente dell'attacco per la denuncia.",
         'prevenzione': "Sistemi di filtraggio del traffico e bilanciamento del carico."
     },
     '640': {
@@ -52,7 +57,15 @@ database_reati = {
         'pena': "Reclusione da 6 mesi a 3 anni + multa",
         'soluzione': ["Blocca ogni comunicazione col truffatore", "Segnala il sito/profilo"],
         'denuncia': "Art. 640 c.p. - Conserva chat, ricevute e URL del sito truffaldino.",
+        'azione_legale': "Salva tutte le conversazioni (WhatsApp, email), l'annuncio di vendita e la prova del pagamento. Non cancellare il profilo del venditore anche se scompare.",
         'prevenzione': "Verifica recensioni e usa metodi di pagamento protetti."
+    },
+    '640-bis': {
+        'titolo': "Truffa aggravata per erogazioni pubbliche",
+        'tags': ["bonus", "finanziamento", "stato", "inps", "agevolazioni", "indebito"],
+        'soluzione': ["Rettifica immediata presso l'ente erogatore."],
+        'azione_legale': "Prepara tutta la documentazione inviata per ottenere il bonus. Se l'errore è involontario, procedi con un ravvedimento operoso prima dell'azione penale.",
+        'prevenzione': "Verifica scrupolosa dei requisiti prima di inoltrare istanze telematiche."
     },
     '640-ter': {
         'titolo': "Frode informatica",
@@ -60,6 +73,7 @@ database_reati = {
         'pena': "Reclusione da 2 a 6 anni + multa",
         'soluzione': ["Blocca conti e carte immediatamente", "Disconosci le operazioni"],
         'denuncia': "Art. 640-ter c.p. - Fondamentale per tentare il rimborso bancario.",
+        'azione_legale': "Stampa l'estratto conto evidenziando le transazioni illecite. Recati in banca per il disconoscimento formale e allega copia della denuncia per il rimborso.",
         'prevenzione': "Non cliccare mai su link in SMS o email che chiedono dati bancari."
     },
     '648-bis': {
@@ -68,6 +82,7 @@ database_reati = {
         'pena': "Reclusione da 4 a 12 anni",
         'soluzione': ["Segnala transazioni sospette al responsabile antiriciclaggio"],
         'denuncia': "Art. 648-bis c.p. - Reato perseguibile d'ufficio.",
+        'azione_legale': "Identifica l'origine dei fondi. Se sei stato usato come 'prestanome' a tua insaputa, collabora immediatamente con le autorità per dimostrare il raggiro subito.",
         'prevenzione': "Procedure KYC (Know Your Customer) stringenti."
     },
     '491-bis': {
@@ -76,6 +91,7 @@ database_reati = {
         'pena': "Equiparata al falso in atto pubblico",
         'soluzione': ["Revoca certificati di firma digitale", "Segnala al provider"],
         'denuncia': "Art. 491-bis c.p. - Il documento digitale ha valore legale pari al cartaceo.",
+        'azione_legale': "Revoca immediatamente il certificato di firma. Richiedi al gestore (Aruba/InfoCert) i log di utilizzo della firma per dimostrare l'uso abusivo.",
         'prevenzione': "Proteggi i token di firma con PIN sicuri."
     },
     'AI-insidioso': {
@@ -84,6 +100,7 @@ database_reati = {
         'pena': "Aggravante Art. 61 n. 11-undecies",
         'soluzione': ["Analisi forense per provare la generazione sintetica del file"],
         'denuncia': "Aggravante specifica prevista per l'uso insidioso di tecnologie IA.",
+        'azione_legale': "Documenta la natura 'sintetica' della prova (Deepfake). Indica nella denuncia che il reato è stato facilitato da strumenti di Intelligenza Artificiale.",
         'prevenzione': "Formazione su come riconoscere contenuti manipolati da IA."
     }
 }
@@ -165,4 +182,5 @@ else:
 
 st.markdown("---")
 st.caption("Nota: Questo strumento fornisce indicazioni generali. In caso di reato, si consiglia di consultare un legale o la Polizia Postale.")
+
 
