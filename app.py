@@ -145,12 +145,13 @@ if search_query:
             for s in dati['soluzione']:
                 st.write(f"- {s}")
         
-        with t2:
-            st.markdown("### Riferimenti Penali e Denuncia")
-            st.error(f"**Pena prevista:** {dati['pena']}")
-            st.info(dati['denuncia'])
-            if st.button("Genera Bozza per Denuncia"):
-                bozza = f"Al Responsabile della Polizia Postale,\n\nIl sottoscritto espone quanto segue: ho riscontrato il reato di {dati['titolo']}. \nNote: {dati['pena']}.\nSi richiede l'intervento delle autorità."
+       with t2:
+            st.markdown("### Iter Legale: Cosa deve fare il soggetto")
+            st.info(dati['azione_legale'])
+            st.warning("⚠️ **Nota Bene:** La denuncia può essere presentata presso qualsiasi ufficio di Polizia o Carabinieri, ma la Polizia Postale è specializzata in questi reati.")
+            
+            if st.button("Genera Bozza per la Querela"):
+                bozza = f"AL RESPONSABILE DELLA POLIZIA POSTALE\n\nIl sottoscritto espone quanto segue: in data odierna ho riscontrato anomalie riconducibili a {dati['titolo']}.\nAzioni intraprese: {dati['soluzione'][0]}.\nSi richiede l'identificazione dei responsabili e la punizione a norma di legge."
                 st.code(bozza)
         
         with t3:
@@ -164,3 +165,4 @@ else:
 
 st.markdown("---")
 st.caption("Nota: Questo strumento fornisce indicazioni generali. In caso di reato, si consiglia di consultare un legale o la Polizia Postale.")
+
