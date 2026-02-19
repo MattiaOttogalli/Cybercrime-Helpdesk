@@ -143,45 +143,41 @@ search_query = st.text_input("Esempio: 'mi hanno svuotato il conto' oppure 'hack
 
 codice_trovato = None
 
-if search_query:
-    # Cerca nei titoli o nei tags
-    for codice, info in database_reati.items():
-        if search_query in info['titolo'].lower() or any(tag in search_query for tag in info['tags']):
-            codice_trovato = codice
+if query:
+    # Ricerca intelligente nel database
+    for cod, info in database_reati.items():
+        if query in info['titolo'].lower() or any(tag in query for tag in info['tags']):
+            codice_identificato = cod
             break
 
-    if codice_trovato:
-        dati = database_reati[codice_trovato]
-        st.success(f"✅ Reato Identificato: **{dati['titolo']}**")
+    if codice_identificato:
+        res = database_reati[codice_identificato]
+        st.success(f"### Reato Riconosciuto: {res['titolo']}")
         
-        # Layout a Tab per le soluzioni
-        t1, t2, t3 = st.tabs(["🛠️ Azioni Immediate", "👮 Procedura Legale", "🛡️ Prevenzione"])
+        tab1, tab2, tab3 = st.tabs(["🛠️ Azioni Immediate", "👮 Procedura Legale", "🛡️ Prevenzione"])
         
-        with t1:
-            st.markdown("### Protocollo di Risoluzione")
-            for s in dati['soluzione']:
+        with tab1:
+            st.markdown("#### Cosa fare nei prossimi 5 minuti:")
+            for s in res['soluzione']:
                 st.write(f"- {s}")
         
-        with t2:
-            st.markdown("### Iter Legale: Cosa deve fare il soggetto")
-            st.info(dati['azione_legale'])
-            st.warning("⚠️ **Nota Bene:** La denuncia può essere presentata presso qualsiasi ufficio di Polizia o Carabinieri, ma la Polizia Postale è specializzata in questi reati.")
+        with tab2:
+            st.markdown("#### Iter di Denuncia (Cosa deve fare il soggetto):")
+            st.info(res['azione_legale'])
+            st.warning("⚠️ Ricorda: Hai 90 giorni di tempo dalla scoperta del fatto per presentare querela.")
             
-            if st.button("Genera Bozza per la Querela"):
-                bozza = f"AL RESPONSABILE DELLA POLIZIA POSTALE\n\nIl sottoscritto espone quanto segue: in data odierna ho riscontrato anomalie riconducibili a {dati['titolo']}.\nAzioni intraprese: {dati['soluzione'][0]}.\nSi richiede l'identificazione dei responsabili e la punizione a norma di legge."
-                st.code(bozza)
+            if st.button("📝 Genera Bozza Denuncia"):
+                bozza = f"AL RESPONSABILE DELLA POLIZIA POSTALE\n\nIl sottoscritto espone quanto segue: in data odierna ho riscontrato anomalie riconducibili al reato di {res['titolo']}.\nAzioni di contenimento già effettuate: {res['soluzione'][0]}.\nSi richiede l'identificazione dei responsabili e si resta a disposizione per fornire le prove digitali raccolte."
+                st.code(bozza, language="text")
         
-        with t3:
-            st.markdown("### Come evitare che riaccada")
-            st.success(dati['prevenzione'])
+        with tab3:
+            st.markdown("#### Consigli per il futuro:")
+            st.success(res['prevenzione'])
             
     else:
-        st.error("❌ Nessun reato specifico trovato. Prova con parole diverse (es: banca, password, firma, virus).")
+        st.error("❌ Nessun reato specifico identificato. Prova termini come 'banca', 'hacker', 'virus' o 'soldi'.")
 else:
-    st.info("Digita una parola chiave nella barra sopra per analizzare il tuo caso.")
+    st.info("Digita il problema riscontrato nella barra di ricerca sopra per ricevere assistenza.")
 
 st.markdown("---")
-st.caption("Nota: Questo strumento fornisce indicazioni generali. In caso di reato, si consiglia di consultare un legale o la Polizia Postale.")
-
-
-
+st.caption("Nota: Questo applicativo ha scopo informativo. In caso di reato, consulta sempre un avvocato o la Polizia Postale.")
